@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs2dacxwsej2n"]
+
+[ext_resource type="Texture2D" uid="uid://c1grwei3uer2x" path="res://assets/ui/art/TitleScreenBackground.png" id="1_co2dq"]
+[ext_resource type="Texture2D" uid="uid://dpo6p6qftwiyh" path="res://assets/ui/buttons/Button.png" id="2_i4pv2"]
+[ext_resource type="Texture2D" uid="uid://qkhuho7b3vg2" path="res://assets/ui/buttons/ButtonPressed.png" id="3_dbhh3"]
+[ext_resource type="FontFile" uid="uid://5wgp8i3brprq" path="res://assets/ui/fonts/Yoster.ttf" id="4_aasvm"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_co2dq")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Start" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_i4pv2")
+texture_pressed = ExtResource("3_dbhh3")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Start"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_aasvm")
+theme_override_font_sizes/font_size = 60
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_i4pv2")
+texture_pressed = ExtResource("3_dbhh3")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_aasvm")
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
