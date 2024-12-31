@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bclebx0wotwj2"]
+
+[ext_resource type="Texture2D" uid="uid://dcjgv6xe6h0vq" path="res://assets/enemies/Banana.png" id="1_mknkc"]
+[ext_resource type="Script" path="res://scripts/enemies/Banana.gd" id="1_ww4gj"]
+
+[node name="Banana" type="Node2D"]
+script = ExtResource("1_ww4gj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mknkc")

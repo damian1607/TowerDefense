@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm872ai8qalhd"]
+
+[ext_resource type="Script" path="res://scripts/enemies/Kiwi.gd" id="1_bx5do"]
+[ext_resource type="Texture2D" uid="uid://dcl0hmhv3dwux" path="res://assets/enemies/Kiwi.png" id="1_ipi0u"]
+
+[node name="Kiwi" type="Node2D"]
+script = ExtResource("1_bx5do")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ipi0u")

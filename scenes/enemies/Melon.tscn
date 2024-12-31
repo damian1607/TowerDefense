@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdi3wbojq0s4r"]
+
+[ext_resource type="Texture2D" uid="uid://cgqxyew0as0ca" path="res://assets/enemies/Melon.png" id="1_4jnam"]
+[ext_resource type="Script" path="res://scripts/enemies/Melon.gd" id="1_4kgaq"]
+
+[node name="Melon" type="Node2D"]
+script = ExtResource("1_4kgaq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4jnam")
