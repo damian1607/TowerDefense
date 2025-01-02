@@ -1,10 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm872ai8qalhd"]
+[gd_scene load_steps=5 format=3 uid="uid://dm872ai8qalhd"]
 
 [ext_resource type="Script" path="res://scripts/enemies/Kiwi.gd" id="1_bx5do"]
 [ext_resource type="Texture2D" uid="uid://dcl0hmhv3dwux" path="res://assets/enemies/Kiwi.png" id="1_ipi0u"]
+[ext_resource type="Script" path="res://scripts/enemies/PathClass.gd" id="2_q15ds"]
+
+[sub_resource type="Curve2D" id="Curve2D_kq8pe"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -64, 400, 0, 0, 0, 0, 624, 400, 0, 0, 0, 0, 912, 400, 0, 0, 0, 0, 912, 112, 0, 0, 0, 0, 624, 112, 0, 0, 0, 0, 624, 624, 0, 0, 0, 0, 944, 624, 0, 0, 0, 0, 944, 768)
+}
+point_count = 8
 
 [node name="Kiwi" type="Node2D"]
 script = ExtResource("1_bx5do")
+health = 30
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_kq8pe")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-64, 400)
+rotates = false
+loop = false
+script = ExtResource("2_q15ds")
+speed = 0.03
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+position = Vector2(64, -400)
 texture = ExtResource("1_ipi0u")
+offset = Vector2(-64, 400)

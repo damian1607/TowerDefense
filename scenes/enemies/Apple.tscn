@@ -1,10 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccmynkwg4eu02"]
+[gd_scene load_steps=5 format=3 uid="uid://ccmynkwg4eu02"]
 
 [ext_resource type="Script" path="res://scripts/enemies/Apple.gd" id="1_67ci0"]
 [ext_resource type="Texture2D" uid="uid://dogudo8ca388g" path="res://assets/enemies/Apple.png" id="1_lus0x"]
+[ext_resource type="Script" path="res://scripts/enemies/PathClass.gd" id="2_jfdk2"]
+
+[sub_resource type="Curve2D" id="Curve2D_5oweb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -64, 400, 0, 0, 0, 0, 624, 400, 0, 0, 0, 0, 912, 400, 0, 0, 0, 0, 912, 112, 0, 0, 0, 0, 624, 112, 0, 0, 0, 0, 624, 624, 0, 0, 0, 0, 944, 624, 0, 0, 0, 0, 944, 768)
+}
+point_count = 8
 
 [node name="Apple" type="Node2D"]
 script = ExtResource("1_67ci0")
+health = 30
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_5oweb")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-64, 400)
+rotates = false
+loop = false
+script = ExtResource("2_jfdk2")
+speed = 0.03
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+position = Vector2(64, -400)
 texture = ExtResource("1_lus0x")
+offset = Vector2(-64, 400)

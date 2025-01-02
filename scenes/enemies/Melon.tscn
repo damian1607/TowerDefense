@@ -1,10 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdi3wbojq0s4r"]
+[gd_scene load_steps=5 format=3 uid="uid://cdi3wbojq0s4r"]
 
 [ext_resource type="Texture2D" uid="uid://cgqxyew0as0ca" path="res://assets/enemies/Melon.png" id="1_4jnam"]
 [ext_resource type="Script" path="res://scripts/enemies/Melon.gd" id="1_4kgaq"]
+[ext_resource type="Script" path="res://scripts/enemies/PathClass.gd" id="2_peasi"]
+
+[sub_resource type="Curve2D" id="Curve2D_43gk7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -64, 400, 0, 0, 0, 0, 624, 400, 0, 0, 0, 0, 912, 400, 0, 0, 0, 0, 912, 112, 0, 0, 0, 0, 624, 112, 0, 0, 0, 0, 624, 624, 0, 0, 0, 0, 944, 624, 0, 0, 0, 0, 944, 768)
+}
+point_count = 8
 
 [node name="Melon" type="Node2D"]
 script = ExtResource("1_4kgaq")
+health = 100
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_43gk7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-64, 400)
+rotates = false
+loop = false
+script = ExtResource("2_peasi")
+speed = 0.01
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+position = Vector2(64, -400)
 texture = ExtResource("1_4jnam")
+offset = Vector2(-64, 400)
